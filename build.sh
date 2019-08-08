@@ -1,21 +1,15 @@
 #!/bin/bash
 
-echo $TELEGRAM_TOKEN >/tmp/tg_token
-echo $TELEGRAM_CHAT >/tmp/tg_chat
-echo $GITHUB_TOKEN >/tmp/gh_token
-
-git clone https://github.com/bluedogerino/manifest.git .repo/local_manifests
-
-source ./config.sh
-
 # Email for git
 git config --global user.email "bluedogerino@gmail.com"
 git config --global user.name "Griffin"
 
-export TELEGRAM_TOKEN
-export TELEGRAM_CHAT
-export GITHUB_TOKEN
+source ./config.sh
 
+mkdir "$ROM"
+cd "$ROM"
+
+repo init -u "$manifest_url" -b "$branch" --depth 1 >/dev/null  2>&1
 function trim_darwin() {
     cd .repo/manifests
     cat default.xml | grep -v darwin  >temp  && cat temp >default.xml  && rm temp
@@ -24,19 +18,13 @@ function trim_darwin() {
     cat manifest.xml | grep -v darwin  >temp  && cat temp >manifest.xml  && rm temp
     cd ../
 }
-
 export outdir="out/target/product/$device"
-
-mkdir "$ROM"
-cd "$ROM"
 mkdir .repo/local_manifests -p
-
-repo init -u "$manifest_url" -b "$branch" --depth 1 >/dev/null  2>&1
+git clone https://github.com/bluedogerino/manifest.git .repo/local_manifests
 echo "Sync started for "$manifest_url""
 telegram -M "Sync Started for ["$ROM"]("$manifest_url")"
 SYNC_START=$(date +"%s")
 trim_darwin >/dev/null   2>&1
-bash ./clone.sh
 repo sync --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j64 -q 2>&1 >>logwe 2>&1
 SYNC_END=$(date +"%s")
 SYNC_DIFF=$((SYNC_END - SYNC_START))
