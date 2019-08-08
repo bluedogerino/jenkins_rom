@@ -4,7 +4,8 @@ pipeline {
   stages {
     stage('Start the build') {
       steps {
-      bash ./setup.sh 
+       echo "does this work"
+     ./setup.sh 
       }
     }
   }
