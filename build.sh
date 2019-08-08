@@ -15,55 +15,19 @@ ROM="LineageOS"
 manifest_url="https://github.com/LineageOS/android"
 export rom_vendor_name="lineage"
 branch="lineage-16.0"
-echo "Building LineageOS";
+echo "using LineageOS";
 elif [[ "${ROMname}" =~ "RR" ]]; then
 ROM="RR"
 manifest_url="https://github.com/ResurrectionRemix/platform_manifest"
 export rom_vendor_name="rr"
 branch="pie"
-echo "Building RR";
-if [[ "${ROMname}" =~ "CrDroid" ]]; then
-ROM="CrDroid"
-manifest_url="https://github.com/crdroidandroid/android"
-export rom_vendor_name="lineage"
-branch="9.0"
-echo "Building CrDroid";
+echo "using RR";
 elif [[ "${ROMname}" =~ "AOSiP" ]]; then
 ROM="AOSiP"
 manifest_url="https://github.com/AOSiP/platform_manifest"
 export rom_vendor_name="aosip"
 branch="pie"
 echo "Building AOSIP";
-elif [[ "${ROMname}" =~ "EvoX" ]]; then
-ROM="EvolutionX"
-manifest_url="https://github.com/Evolution-X/platform_manifest"
-export rom_vendor_name="aosp"
-branch="pie"
-echo "Building EvolutionX";
-elif [[ "${ROMname}" =~ "COSP" ]]; then
-ROM="COSP"
-manifest_url="https://github.com/cosp-project/manifest"
-export rom_vendor_name="cosp"
-branch="pie"
-echo "Building COSP";
-elif [[ "${ROMname}" =~ "Havoc" ]]; then
-ROM="Havoc"
-manifest_url="https://github.com/Havoc-OS/android_manifest"
-export rom_vendor_name="havoc"
-branch="pie"
-echo "Building Havoc";
-elif [[ "${ROMname}" =~ "PE" ]]; then
-ROM="PE"
-manifest_url="https://github.com/PixelExperience/manifest"
-export rom_vendor_name="aosp"
-branch="pie"
-echo "Building PixelExperience";
-elif [[ "${ROMname}" =~ "Viper" ]]; then
-ROM="Viper"
-manifest_url="https://github.com/ViperOS/viper_manifest"
-export rom_vendor_name="viper"
-branch="pie"
-echo "Building ViperOS";
 elif [[ -n "$string" ]]; then
   echo "String is not empty";
 fi
