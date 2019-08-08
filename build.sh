@@ -28,6 +28,12 @@ manifest_url="https://github.com/ResurrectionRemix/platform_manifest"
 export rom_vendor_name="rr"
 branch="pie"
 echo "using RR";
+elif [[ "${ROMname}" =~ "Havoc" ]]; then
+ROM="Havoc"
+manifest_url="https://github.com/Havoc-OS/android_manifest"
+export rom_vendor_name="havoc"
+branch="pie"
+echo "building havoc";
 elif [[ "${ROMname}" =~ "AOSiP" ]]; then
 ROM="AOSiP"
 manifest_url="https://github.com/AOSiP/platform_manifest"
