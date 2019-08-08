@@ -4,20 +4,13 @@ echo $TELEGRAM_TOKEN >/tmp/tg_token
 echo $TELEGRAM_CHAT >/tmp/tg_chat
 echo $GITHUB_TOKEN >/tmp/gh_token
 
-sudo cp github-release /usr/bin
-sudo cp telegram /usr/bin
-
 git clone https://github.com/bluedogerino/manifest.git .repo/local_manifests
 
 source ./config.sh
 
 # Email for git
-git config --global user.email "$GITHUB_EMAIL"
-git config --global user.name "$GITHUB_USER"
-
-TELEGRAM_TOKEN=$(cat /tmp/tg_token)
-TELEGRAM_CHAT=$(cat /tmp/tg_chat)
-GITHUB_TOKEN=$(cat /tmp/gh_token)
+git config --global user.email "bluedogerino@gmail.com"
+git config --global user.name "Griffin"
 
 export TELEGRAM_TOKEN
 export TELEGRAM_CHAT
@@ -51,12 +44,11 @@ if [ -e frameworks/base ]; then
     echo "Sync completed successfully in $((SYNC_DIFF / 60)) minute(s) and $((SYNC_DIFF % 60)) seconds"
     echo "Build Started"
     telegram -M "Sync completed successfully in $((SYNC_DIFF / 60)) minute(s) and $((SYNC_DIFF % 60)) seconds
-Build Started: [See Progress]("$ci_url")"
+Build Started: [See Progress]"
 
     BUILD_START=$(date +"%s")
 
     . build/envsetup.sh >/dev/null  2>&1
-    source ./config.sh
     lunch "$rom_vendor_name"_"$device"-userdebug >/dev/null  2>&1
     mka bacon -j64 | grep "$device"
     BUILD_END=$(date +"%s")
