@@ -16,6 +16,12 @@ manifest_url="https://github.com/LineageOS/android"
 export rom_vendor_name="lineage"
 branch="lineage-16.0"
 echo "using LineageOS";
+elif [[ "${ROMname}" =~ "CrDroid" ]]; then
+ROM="CrDroid"
+manifest_url="https://github.com/crdroidandroid/android"
+export rom_vendor_name="lineage"
+branch="9.0"
+echo "using CrDroid";
 elif [[ "${ROMname}" =~ "EvoX" ]]; then
 ROM="EvoX"
 manifest_url="https://github.com/Evolution-X/platform_manifest"
