@@ -4,4 +4,4 @@ echo $GITHUB_TOKEN >/tmp/gh_token
 
 sudo cp github-release /usr/bin
 sudo cp telegram /usr/bin
-sudo "bash build.sh"
+sudo "bash ./build.sh"
