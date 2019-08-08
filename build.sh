@@ -29,6 +29,8 @@ manifest_url="https://github.com/AOSiP/platform_manifest"
 export rom_vendor_name="aosip"
 branch="pie"
 echo "Building AOSIP"
+elif [[ -n "$string" ]]; then
+  echo "String is not empty"
 fi
 
 telegram -M "Sync Started for ["$ROM"]("$manifest_url")"
