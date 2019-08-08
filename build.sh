@@ -1,14 +1,14 @@
 #!/bin/bash
 
 
-GITHUB_USER=Griffin
-GITHUB_EMAIL=bluedogerino@gmail.com
+GITHUB_USER="${GITHUB_USER}"
+GITHUB_EMAIL=${GITHUB_EMAIL}
 
-KBUILD_BUILD_USER="griffin"
-KBUILD_BUILD_HOST="GriffinsCloud"
+KBUILD_BUILD_USER="${KBUILD_BUILD_USER}"
+KBUILD_BUILD_HOST="${KBUILD_BUILD_HOST}"
 
-export oem=samsung
-export device=j5y17lte
+export oem=${OEM}
+export device=${DEVICE}
 
 if [[ "${ROMname}" =~ "LineageOS" ]]; then
 ROM="LineageOS"
@@ -53,7 +53,7 @@ function trim_darwin() {
 }
 export outdir="out/target/product/$device"
 mkdir .repo/local_manifests -p
-git clone https://github.com/bluedogerino/manifest.git .repo/local_manifests
+wget ${ROOMSERVICE} -O .repo/local_manifests/roomservice.xml
 echo "Sync started for "$manifest_url""
 telegram -M "Sync Started for ["$ROM"]("$manifest_url")"
 SYNC_START=$(date +"%s")
