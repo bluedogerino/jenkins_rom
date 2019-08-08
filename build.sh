@@ -10,19 +10,19 @@ KBUILD_BUILD_HOST="GriffinsCloud"
 export oem=samsung
 export device=j5y17lte
 
-if [[ -z $ROMname="LineageOS" ]]; then
+if [[ $ROMname == "LineageOS" ]]; then
 ROM="LineageOS"
 manifest_url="https://github.com/LineageOS/android"
 export rom_vendor_name="lineage"
 branch="lineage-16.0"
 echo "using LineageOS"
-elif [[ -z $ROMname="RR" ]]; then
+elif [[ $ROMname = "RR" ]]; then
 ROM="RR"
 manifest_url="https://github.com/ResurrectionRemix/platform_manifest"
 export rom_vendor_name="rr"
 branch="pie"
 echo "using RR"
-elif [[ -z $ROMname="AOSiP" ]]; then
+elif [[ $ROMname == "AOSiP" ]]; then
 ROM="RR"
 manifest_url="https://github.com/AOSiP/platform_manifest"
 export rom_vendor_name="aosip"
@@ -43,7 +43,7 @@ mkdir "$ROM"
 cd "$ROM"
 
 repo init -u "$manifest_url" -b "$branch" --depth 1 >/dev/null  2>&1
-function trim_darwin() {
+function trim_dar win() {
     cd .repo/manifests
     cat default.xml | grep -v darwin  >temp  && cat temp >default.xml  && rm temp
     git commit -a -m "Magic"
