@@ -33,7 +33,7 @@ mkdir .repo/local_manifests -p
 
 repo init -u "$manifest_url" -b "$branch" --depth 1 >/dev/null  2>&1
 echo "Sync started for "$manifest_url""
-telegram -M "Sync Started for ["$ROM"]("$manifest_url")" -t ${TELEGRAM_TOKEN} -c ${TELEGRAM_CHAT}
+telegram -M "Sync Started for ["$ROM"]("$manifest_url")"
 SYNC_START=$(date +"%s")
 trim_darwin >/dev/null   2>&1
 bash ./clone.sh
