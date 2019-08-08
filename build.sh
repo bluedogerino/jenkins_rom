@@ -43,7 +43,7 @@ mkdir "$ROM"
 cd "$ROM"
 
 repo init -u "$manifest_url" -b "$branch" --depth 1 >/dev/null  2>&1
-function trim_dar win() {
+function trim_darwin() {
     cd .repo/manifests
     cat default.xml | grep -v darwin  >temp  && cat temp >default.xml  && rm temp
     git commit -a -m "Magic"
