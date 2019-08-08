@@ -15,21 +15,21 @@ ROM="LineageOS"
 manifest_url="https://github.com/LineageOS/android"
 export rom_vendor_name="lineage"
 branch="lineage-16.0"
-echo "using LineageOS"
+echo "using LineageOS";
 elif [[ "${ROMname}" =~ "RR" ]]; then
 ROM="RR"
 manifest_url="https://github.com/ResurrectionRemix/platform_manifest"
 export rom_vendor_name="rr"
 branch="pie"
-echo "using RR"
+echo "using RR";
 elif [[ "${ROMname}" =~ "AOSiP" ]]; then
 ROM="AOSiP"
 manifest_url="https://github.com/AOSiP/platform_manifest"
 export rom_vendor_name="aosip"
 branch="pie"
-echo "Building AOSIP"
+echo "Building AOSIP";
 elif [[ -n "$string" ]]; then
-  echo "String is not empty"
+  echo "String is not empty";
 fi
 
 telegram -M "Sync Started for ["$ROM"]("$manifest_url")"
