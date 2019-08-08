@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo ${TELEGRAM_TOKEN} >/tmp/tg_token
-echo ${TELEGRAM_CHAT} >/tmp/tg_chat
-echo ${GITHUB_TOKEN} >/tmp/gh_token
+echo $TELEGRAM_TOKEN >/tmp/tg_token
+echo $TELEGRAM_CHAT >/tmp/tg_chat
+echo $GITHUB_TOKEN >/tmp/gh_token
 
 git clone https://github.com/bluedogerino/manifest.git .repo/local_manifests
 
@@ -12,9 +12,9 @@ source ./config.sh
 git config --global user.email "bluedogerino@gmail.com"
 git config --global user.name "Griffin"
 
-#export TELEGRAM_TOKEN
-#export TELEGRAM_CHAT
-#export GITHUB_TOKEN
+export TELEGRAM_TOKEN
+export TELEGRAM_CHAT
+export GITHUB_TOKEN
 
 function trim_darwin() {
     cd .repo/manifests
@@ -33,7 +33,7 @@ mkdir .repo/local_manifests -p
 
 repo init -u "$manifest_url" -b "$branch" --depth 1 >/dev/null  2>&1
 echo "Sync started for "$manifest_url""
-telegram -M "Sync Started for ["$ROM"]("$manifest_url")"
+telegram -M "Sync Started for ["$ROM"]("$manifest_url")" -t ${TELEGRAM_TOKEN} -c ${TELEGRAM_CHAT}
 SYNC_START=$(date +"%s")
 trim_darwin >/dev/null   2>&1
 bash ./clone.sh
