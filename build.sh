@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo ${TELEGRAM_TOKEN} >/tmp/tg_token
-echo $T[ELEGRAM_CHAT} >/tmp/tg_chat
+echo ${TELEGRAM_CHAT} >/tmp/tg_chat
 echo ${GITHUB_TOKEN} >/tmp/gh_token
 
 git clone https://github.com/bluedogerino/manifest.git .repo/local_manifests
