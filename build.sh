@@ -12,9 +12,9 @@ source ./config.sh
 git config --global user.email "bluedogerino@gmail.com"
 git config --global user.name "Griffin"
 
-export TELEGRAM_TOKEN
-export TELEGRAM_CHAT
-export GITHUB_TOKEN
+#export TELEGRAM_TOKEN
+#export TELEGRAM_CHAT
+#export GITHUB_TOKEN
 
 function trim_darwin() {
     cd .repo/manifests
