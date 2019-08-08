@@ -32,7 +32,7 @@ if [ -e frameworks/base ]; then
     echo "Sync completed successfully in $((SYNC_DIFF / 60)) minute(s) and $((SYNC_DIFF % 60)) seconds"
     echo "Build Started"
     telegram -M "Sync completed successfully in $((SYNC_DIFF / 60)) minute(s) and $((SYNC_DIFF % 60)) seconds
-Build Started: [See Progress]"
+Build Started: [See Progress]("${BUILD_URL}")"
 
     BUILD_START=$(date +"%s")
 
