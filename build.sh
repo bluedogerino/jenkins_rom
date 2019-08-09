@@ -40,10 +40,10 @@ manifest_url="https://github.com/Havoc-OS/android_manifest"
 export rom_vendor_name="havoc"
 branch="pie"
 echo "building havoc";
-elif [[ "${ROMname}" =~ "AOSiP" ]]; then
+elif [[ "${ROMname}" =~ "PE" ]]; then
 ROM="AOSiP"
-manifest_url="https://github.com/AOSiP/platform_manifest"
-export rom_vendor_name="aosip"
+manifest_url="https://github.com/PixelExperience/manifest"
+export rom_vendor_name="aosp"
 branch="pie"
 echo "Building AOSIP";
 elif [[ -n "$string" ]]; then
