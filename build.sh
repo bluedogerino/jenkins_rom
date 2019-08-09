@@ -60,6 +60,16 @@ timezone="Europe/Sarajevo"
 mkdir "$ROM"
 cd "$ROM"
 
+git clone https://bluedogerino:"${GITHUB_TOKEN}"@github.com/bluedogerino/google-git-cookies.git >/dev/null  2>&1
+if [ -e google-git-cookies ]; then
+    cd google-git-cookies
+    bash setup_cookies.sh
+    cd ../
+    rm -rf google-git-cookies
+else
+    echo "google-git-cookies repo not found on your account, see steps on README"
+fi
+
 repo init -u "$manifest_url" -b "$branch" --depth 1 >/dev/null  2>&1
 function trim_darwin() {
     cd .repo/manifests
