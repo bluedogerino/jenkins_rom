@@ -75,7 +75,7 @@ wget ${ROOMSERVICE} -O .repo/local_manifests/roomservice.xml
 echo "Sync started for "$manifest_url""
 SYNC_START=$(date +"%s")
 trim_darwin >/dev/null   2>&1
-repo sync --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j64 -q 2>&1 >>logwe 2>&1
+repo sync --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j64 -q 
 SYNC_END=$(date +"%s")
 SYNC_DIFF=$((SYNC_END - SYNC_START))
 if [ -e frameworks/base ]; then
