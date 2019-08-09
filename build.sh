@@ -94,6 +94,9 @@ Build Started: [See Progress]("https://jenkins.turbox.uk/job/${JOB_NAME}/${BUILD
     BUILD_DIFF=$((BUILD_END - BUILD_START))
 
     export finalzip_path=$(ls "$outdir"/*201*.zip | tail -n -1)
+    export finaljson_path=$(ls "$outdir"/*.json | tail -n -1)
+    export finaltxt_path=$(ls "$outdir"/*.txt | tail -n -1)
+    export finalmd5sum_path=$(ls "$outdir"/*.md5sum | tail -n -1)
     export zip_name=$(echo "$finalzip_path" | sed "s|"$outdir"/||")
     export tag=$( echo "$zip_name" | sed 's|.zip||')
     if [ -e "$finalzip_path" ]; then
@@ -102,7 +105,7 @@ Build Started: [See Progress]("https://jenkins.turbox.uk/job/${JOB_NAME}/${BUILD
         echo "Uploading"
 
         github-release "$release_repo" "$tag" "master" ""$ROM" for "$device"
-Date: $(env TZ="$timezone" date)" "$finalzip_path"
+Date: $(env TZ="$timezone" date)" "$finalzip_path $finaltxt_path $finaljson_path $finalmd5sum_path"
 
         echo "Uploaded"
 
