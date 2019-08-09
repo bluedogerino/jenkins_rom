@@ -107,8 +107,8 @@ Build Started: [See Progress]("https://jenkins.turbox.uk/job/${JOB_NAME}/${BUILD
 
         echo "Uploading"
 
-        github-release "$final"
-Date: $(env TZ="$timezone" date)" "$finalzip_path $finaltxt_path $finaljson_path $finalmd5sum_path"
+        github-release "$release_repo" "$tag" "master" ""$ROM" for "$device"
+Date: $(env TZ="$timezone" date)" "$final"
 
         echo "Uploaded"
 
