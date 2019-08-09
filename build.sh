@@ -41,11 +41,11 @@ export rom_vendor_name="havoc"
 branch="pie"
 echo "building havoc";
 elif [[ "${ROMname}" =~ "PE" ]]; then
-ROM="AOSiP"
+ROM="PE"
 manifest_url="https://github.com/PixelExperience/manifest"
 export rom_vendor_name="aosp"
 branch="pie"
-echo "Building AOSIP";
+echo "Building PE";
 elif [[ -n "$string" ]]; then
   echo "String is not empty";
 fi
@@ -73,7 +73,6 @@ export outdir="out/target/product/$device"
 mkdir .repo/local_manifests -p
 wget ${ROOMSERVICE} -O .repo/local_manifests/roomservice.xml
 echo "Sync started for "$manifest_url""
-telegram -M "Sync Started for ["$ROM"]("$manifest_url")"
 SYNC_START=$(date +"%s")
 trim_darwin >/dev/null   2>&1
 repo sync --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j64 -q 2>&1 >>logwe 2>&1
